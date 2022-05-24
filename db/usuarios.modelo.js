@@ -25,7 +25,11 @@ const Usuarios = sequelize.define('usuarios' , {
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    pass : {
+    pass: {
+        type: DataTypes.STRING(50),
+        allowNull: false
+    },
+    passEncryp:{
         type: DataTypes.STRING(100),
         allowNull: false
     },

@@ -1,18 +1,20 @@
 const Sequelize = require('sequelize');
 
 
-const sequelize  = new Sequelize('tecla_connection', null, null, {
+const sequelize  = new Sequelize({
   dialect: 'mssql',
+  database: 't_connection',
   server: process.env.DB_HOST,
   port: process.env.DB_PORT,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  logging: true,
   dialectOptions: {
     authentication: {
       type: 'default',
-      options: {
-        encrypt: true,
-        userName: process.env.DB_USER,
-        password: process.env.DB_PASS
-      }
+    },
+    options: {
+      encrypt: true,
     }
   }
 })

@@ -14,6 +14,7 @@ module.exports.crearCliente = async (usuario)=> {
             usuario.apellidos,
             usuario.email,
             usuario.usuario,
+            usuario.pass,
             encriptacion,
             usuario.tipo
         ]
