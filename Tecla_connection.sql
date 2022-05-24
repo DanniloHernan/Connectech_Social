@@ -1,4 +1,4 @@
-USE tecla_connection
+USE t_connection
 
 
 Select * FROM usuarios

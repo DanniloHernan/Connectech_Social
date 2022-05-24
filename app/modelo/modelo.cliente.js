@@ -9,7 +9,7 @@ module.exports.nuevoCliente = async (usr)=> {
         if (resultado != null){
             return false
         }else {
-            await Usuarios.create({nombres:usr[0], apellidos:usr[1],email:usr[2],usuario:usr[3],pass:usr[4],tipo:usr[5]})
+            await Usuarios.create({nombres:usr[0], apellidos:usr[1],email:usr[2],usuario:usr[3],pass:usr[4],passEncryp:usr[5],tipo:usr[6]})
             return true
         }
     }catch (err) {
