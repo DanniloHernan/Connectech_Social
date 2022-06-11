@@ -89,7 +89,7 @@ async function mostrarDatos(){
 
   function crearDatos(datos){
     
-    document.getElementById('nombre').innerHTML = datos.apellidos + " " + datos.nombres
+    document.getElementById('nombre').innerHTML = datos.nombres + " " + datos.apellidos
     document.getElementById('titular').innerHTML = datos.titular
     document.getElementById('ciudad').innerHTML = datos.ciudad
     document.getElementById('email').innerHTML = datos.email   

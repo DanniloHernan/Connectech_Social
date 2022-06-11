@@ -9,7 +9,14 @@ module.exports.nuevoCliente = async (usr)=> {
         if (resultado != null){
             return false
         }else {
-            await Usuarios.create({nombres:usr[0], apellidos:usr[1],email:usr[2],usuario:usr[3],pass:usr[4],passEncryp:usr[5],tipo:usr[6]})
+            await Usuarios.create({
+                nombres:usr[0], 
+                apellidos:usr[1],
+                email:usr[2],
+                usuario:usr[3],
+                pass:usr[4],
+                passEncryp:usr[5],
+                tipo:usr[6]})
             return true
         }
     }catch (err) {
@@ -22,7 +29,7 @@ module.exports.existenciaDeCliente = async (usr)=>{
     try {
         let resultado = await Usuarios.findOne({where: {usuario: usr}})
         if (resultado) {          
-                return resultado.pass
+                return resultado.passEncryp
         }else {
             return false
         }
@@ -34,8 +41,11 @@ module.exports.existenciaDeCliente = async (usr)=>{
 module.exports.existenciaDeAdmin = async (usr)=>{
     let usuario = [usr.usuario , usr.pass]
     try {
-        let resultado = await Usuarios.findOne({where: {usuario: `${usuario[0]}`,pass: `${usuario[1]}`, tipo: "admin"}})
-        //let resultado = await sequelize.query(`SELECT * FROM dbo.clientes WHERE clientes.usuario = '${usuario[0]}'`);
+        let resultado = await Usuarios.findOne({where: {
+            usuario: `${usuario[0]}`,
+            pass: `${usuario[1]}`, 
+            tipo: "admin"}})
+            //let resultado = await sequelize.query(`SELECT * FROM dbo.clientes WHERE clientes.usuario = '${usuario[0]}'`); Misma implementacion pero con querys
         if (resultado != null) {
             return true
         }else {
@@ -63,7 +73,9 @@ module.exports.listaTeclers = async (id)=> {
 
 module.exports.obtenerID = async (usr)=>{
     try {
-        let resultado = await Usuarios.findOne({attributes: ['id_usuario'],where: {usuario: usr}})
+        let resultado = await Usuarios.findOne({
+            attributes: ['id_usuario'],
+            where: {usuario: usr}})
         let id = resultado.id_usuario
         console.log(id)
         if (resultado != null) {          
