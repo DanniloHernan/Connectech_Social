@@ -23,7 +23,7 @@ module.exports = async (app)=> {
         try {
             let resultado = await servClientes.cheqCliente(usuario)
             if (resultado) { 
-                res.redirect(301, `/tecla_connection`)
+                res.redirect(301, `/connectech`)
             }
             else{
                 throw new Error (err)
@@ -107,7 +107,7 @@ module.exports = async (app)=> {
         } 
     })
 
-    app.get('/tecla_connection', async (req,res)=> {
+    app.get('/connectech', async (req,res)=> {
         try{
             res.render("inicio", {})
         }catch (error) {

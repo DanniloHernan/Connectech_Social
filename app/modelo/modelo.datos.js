@@ -28,7 +28,17 @@ module.exports.verUsuario = async function (id){
 
     try {
       let buscarD = await sequelize.query(`
-      SELECT nombres,apellidos,email,titular,ciudad,idioma,linkedin,github,estudios,sobre_ti
+      SELECT 
+      nombres,
+      apellidos,
+      email,
+      titular,
+      ciudad,
+      idioma,
+      linkedin,
+      github,
+      estudios,
+      sobre_ti
       FROM usuarios u
       INNER JOIN datos_usuarios du ON du.usuario_id = '${id}'
       AND u.id_usuario = '${id}'`)
